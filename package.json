@@ -1,0 +1,47 @@
+{
+  "name": "react-ssr-kit",
+  "version": "0.0.1",
+  "description": "react-ssr",
+  "main": "index.js",
+  "scripts": {
+    "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
+    "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.config.client.js",
+    "commit": "npm install -g commitizen && commitizen init cz-conventional-changelog --save-dev --save-exact"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhao-jun/react-ssr-kit.git"
+  },
+  "keywords": [
+    "react-ssr"
+  ],
+  "author": "zhao-jun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhao-jun/react-ssr-kit/issues"
+  },
+  "homepage": "https://github.com/zhao-jun/react-ssr-kit#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "react-dom": "^16.4.2",
+    "react-hot-loader": "^4.3.5",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.6"
+  },
+  "dependencies": {
+    "react": "^16.4.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
