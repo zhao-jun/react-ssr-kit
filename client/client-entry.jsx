@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import Home from './views/home'
+import App from './app'
 
 const HotRender = Component => {
   render(
@@ -12,10 +12,10 @@ const HotRender = Component => {
   )
 }
 
-HotRender(Home)
+HotRender(App)
 
 if (module.hot) {
- module.hot.accept('./views/home', () => {
-   HotRender(require('./views/home').default)
+ module.hot.accept('./app', () => {
+   HotRender(require('./app').default)
  })
 }
