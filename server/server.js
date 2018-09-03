@@ -1,6 +1,6 @@
 const Koa = require('koa')
 const render = require('koa-art-template')
-
+const renderRouter = require('./routers/render')
 const app = new Koa()
 
 render(app, {
@@ -8,13 +8,6 @@ render(app, {
   extname: '.html',
   debug: process.env.NODE_ENV !== 'production'
 })
-
-const isDev = process.env.NODE_ENV === 'development'
-
-let renderRouter
-if (isDev) {
-}
-renderRouter = require('./routers/render')
 
 app.use(renderRouter.routes()).use(renderRouter.allowedMethods())
 

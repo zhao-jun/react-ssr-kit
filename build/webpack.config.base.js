@@ -3,9 +3,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // 便于以后统一修改路径
-function resolve(dir) {
-  return path.join(__dirname, '..', dir)
-}
+const resolve = (dir) => path.join(__dirname, '..', dir)
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
