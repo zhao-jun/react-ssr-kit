@@ -5,8 +5,6 @@ export default class App extends Component {
   componentDidMount() {
   }
   render () {
-    return [
-      <Home />
-    ]
+    return <Home />
   }
 }

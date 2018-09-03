@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
+    "dev:server": "nodemon server/server.js",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.config.client.js",
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.config.server.js",
     "clean": "rimraf client-dist && rimraf server-dist",
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/zhao-jun/react-ssr-kit#readme",
   "devDependencies": {
+    "art-template": "^4.13.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -33,6 +35,11 @@
     "cross-env": "^5.2.0",
     "cz-conventional-changelog": "^2.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "koa": "^2.5.2",
+    "koa-art-template": "^1.1.1",
+    "koa-router": "^7.4.0",
+    "nodemon": "^1.18.4",
+    "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.3.5",
     "rimraf": "^2.6.2",
     "webpack": "^4.17.1",
