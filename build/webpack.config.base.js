@@ -11,7 +11,8 @@ module.exports = {
   entry: resolve('client/client-entry.jsx'),
   output: {
     filename: 'bundle.js',
-    path: resolve('client-dist/public')
+    path: resolve('client-dist/public'),
+    publicPath: '/public/'
   },
   resolve: {
     extensions: ['.js', '.jsx']

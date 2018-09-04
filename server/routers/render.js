@@ -1,7 +1,14 @@
 const Router = require('koa-router')
-const handleSSR = require('./../render/dev-ssr')
+const devSSR = require('./../render/dev-ssr')
+const SSR = require('./../render/ssr')
+
+const isDev = process.env.NODE_ENV === 'development'
 
 const renderRouter = new Router()
-renderRouter.get('*', handleSSR)
+if (isDev) {
+  renderRouter.get('*', devSSR)
+} else {
+  renderRouter.get('*', SSR)
+}
 
 module.exports = renderRouter

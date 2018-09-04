@@ -14,6 +14,12 @@ const defaultPlugins = [
   new HtmlWebpackPlugin({
     template: resolve('build/template.html')
   }),
+  // 类似vue-server-renderer将客户端的静态资源插入html的功能
+  // 也可以使用react-loadable在服务端进行模版拼接
+  new HtmlWebpackPlugin({
+    template: resolve('build/server.html'),
+    filename: 'server.html'
+  }),
   // 可以在前端代码中使用
   new webpack.DefinePlugin({
     'process.env': {
@@ -49,7 +55,10 @@ if (isDev) {
       overlay: {
         errors: true
       },
-      hot: true
+      hot: true,
+      historyApiFallback: {
+        index: '/public/index.html'
+      }
     }
   })
 } else {
