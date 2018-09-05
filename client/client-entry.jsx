@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import App from './app'
+import App from './app-client'
 
 const HotRender = Component => {
   render(
@@ -15,7 +15,7 @@ const HotRender = Component => {
 HotRender(App)
 
 if (module.hot) {
- module.hot.accept('./app', () => {
-   HotRender(require('./app').default)
+ module.hot.accept('./app-client', () => {
+   HotRender(require('./app-client').default)
  })
 }
