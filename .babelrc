@@ -18,6 +18,14 @@
   "plugins": [
     "transform-runtime",
     "react-hot-loader/babel",
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    "react-loadable/babel",
+    "dynamic-import-node",
+    [
+      "import-inspector",
+      {
+        "serverSideRequirePath": true
+      }
+    ]
   ]
 }

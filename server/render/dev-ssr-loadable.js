@@ -1,3 +1,6 @@
+
+
+
 const webpack = require('webpack')
 const axios = require('axios')
 const path = require('path')
@@ -5,8 +8,8 @@ const MemoryFS = require('memory-fs')
 const vm = require('vm')
 const template = require('art-template')
 const webpackServerConfig = require('./../../build/webpack.config.server')
-const Helmet = require('react-helmet').default
 import { renderToString } from 'react-dom/server';
+const Helmet = require('react-helmet').default
 import bundleServer from '../../client/server-entry'
 import React from 'react'
 import App from '../../client/app'
@@ -44,10 +47,10 @@ serverCompiler.watch({}, (err, stats) => {
 
 module.exports = async ctx => {
   // 服务端初次打包未结束
-  // if (!bundle) {
-  //   ctx.body = 'bundle 正在打包中...'
-  //   return
-  // }
+  if (!bundle) {
+    ctx.body = 'bundle 正在打包中...'
+    return
+  }
 
   try {
     // 获取html
@@ -56,19 +59,16 @@ module.exports = async ctx => {
     )
     const serverTemplate = serverTemplateRes.data
     const routerContext = {}
-    // const content = renderToString(bundle(ctx.url, routerContext))
     // react-router异步加载
     let modules = [];
-    // let content = bundle(ctx.url, routerContext, modules)
-    let content = bundleServer(ctx.url, routerContext, modules)
-    // let content = renderToString(
-    //   <Loadable.Capture report={moduleName => modules.push(moduleName)}>
-    //     <StaticRouter location={ctx.url} context={routerContext}>
-    //       <App/>
-    //     </StaticRouter>
-    //   </Loadable.Capture>
-    // )
-    // content = renderToString(content)
+    // let content = bundleServer(ctx.url, routerContext, modules)
+    let content = renderToString(
+      <Loadable.Capture report={moduleName => modules.push(moduleName)}>
+        <StaticRouter location={ctx.url} context={routerContext}>
+          <App/>
+        </StaticRouter>
+      </Loadable.Capture>
+    )
     const helmet = Helmet.renderStatic()
     const html = template.render(serverTemplate, {
       appString: content,
@@ -79,6 +79,4 @@ module.exports = async ctx => {
     console.log('render error', error)
     // throw err
   }
-
-
 }

@@ -5,6 +5,7 @@
     "node_modules/**/node_modules",
     ".eslintrc",
     "client",
+    "build/webpack.config.server.js",
     "build/webpack.config.client.js",
     "client-build",
     "server-build"

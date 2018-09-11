@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 
 export default class Home extends Component {
-  componentDidMount() {
-  }
-
   render() {
     return (
       <div>
@@ -13,7 +10,7 @@ export default class Home extends Component {
           <meta name="description" content="This is description" />
         </Helmet>
         home
-      <ul>
+        <ul>
           <li>1</li>
           <li>2</li>
           <li>3</li>

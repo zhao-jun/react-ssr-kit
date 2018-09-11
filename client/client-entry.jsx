@@ -1,21 +1,12 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
+import { render, hydrate } from 'react-dom'
 import App from './app-client'
+import Loadable from 'react-loadable'
 
-const HotRender = Component => {
-  render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-    document.getElementById('root'),
-  )
+window.main = () => {
+  Loadable.preloadReady().then(() => {
+    hydrate(<App/>, document.getElementById('root'))
+  })
 }
-
-HotRender(App)
-
-if (module.hot) {
- module.hot.accept('./app-client', () => {
-   HotRender(require('./app-client').default)
- })
-}
+// todo 不同环境区分对待
+// render(<App/>, document.getElementById('root'))

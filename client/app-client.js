@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { Switch, Route, Router, BrowserRouter } from 'react-router-dom';
 import { getRouterData } from './config/router'
 import './assets/styles/test.less'
+import { hot } from 'react-hot-loader'
 
-export default class App extends Component {
-  // componentWillMount() {
-  //   this.routers = getRouterData('basic')
-  // }
+class App extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -26,3 +24,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default hot(module)(App)

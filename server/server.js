@@ -1,3 +1,4 @@
+const Loadable=require('react-loadable')
 const Koa = require('koa')
 const render = require('koa-art-template')
 const renderRouter = require('./routers/render')
@@ -28,6 +29,9 @@ app.use(renderRouter.routes()).use(renderRouter.allowedMethods())
 const HOST = process.env.HOST || '127.0.0.1'
 const PORT = process.env.PORT || 3030
 
-app.listen(PORT, HOST, () => {
-  console.log(`server is listening on ${HOST}:${PORT}`)
-})
+// preloadAll
+Loadable.preloadAll().then(() => {
+  app.listen(PORT, HOST, () => {
+    console.log(`server is listening on ${HOST}:${PORT}`)
+  })
+}).catch(err => console.log(err))

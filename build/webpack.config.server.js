@@ -36,7 +36,7 @@ module.exports = webpackMerge(baseConfig, {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: isDev ? '"development"' : '"production"',
-        VUE_ENV: '"server"'
+        REACT_ENV: '"server"'
       }
     }),
     new MiniCssExtractPlugin({
